@@ -1,22 +1,14 @@
 import React from 'react';
 import "./App.css";
-import HandleButton from './Components/HandleButton';
 class App extends React.Component {
   state = {
-    show: false
+    background: '',
   };
-
-  handleClick = () => {
-    this.setState({
-      show: !this.state.show
-    })
-  }
 
   render() {
     return (
-      <div className="App">
-        <button onClick={this.handleClick}> Show Counter </button>
-        {this.state.show && <HandleButton />}
+      <div className="App" style={{ background: this.state.background, height: "100vh", width: "100%" }}>
+        <input onChange={(event) => this.setState({ background: event.target.value })} />
       </div>
     );
   }
